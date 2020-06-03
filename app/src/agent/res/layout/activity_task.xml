@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/img_product"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lbl_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ID # "
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_product" />
+
+        <TextView
+            android:id="@+id/txt_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/lbl_id"
+            app:layout_constraintLeft_toRightOf="@id/lbl_id"
+            app:layout_constraintTop_toTopOf="@id/lbl_id"
+            tools:text="120751361-X" />
+
+        <TextView
+            android:id="@+id/lbl_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Item : "
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lbl_id" />
+
+        <TextView
+            android:id="@+id/txt_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/lbl_item"
+            app:layout_constraintLeft_toRightOf="@id/lbl_item"
+            app:layout_constraintTop_toTopOf="@id/lbl_item"
+            tools:text="Beer - Mill St Organic" />
+
+        <TextView
+            android:id="@+id/lbl_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Item Description : "
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lbl_item" />
+
+        <TextView
+            android:id="@+id/txt_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/lbl_description"
+            tools:text="hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam" />
+
+        <TextView
+            android:id="@+id/lbl_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Deliver to : "
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_description" />
+
+        <TextView
+            android:id="@+id/txt_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/lbl_name"
+            app:layout_constraintLeft_toRightOf="@id/lbl_name"
+            app:layout_constraintTop_toTopOf="@id/lbl_name"
+            tools:text="Libby Enterle" />
+
+        <TextView
+            android:id="@+id/lbl_delivery_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delivery Address : "
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lbl_name" />
+
+        <TextView
+            android:id="@+id/txt_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/lbl_delivery_address"
+            app:layout_constraintLeft_toRightOf="@id/lbl_delivery_address"
+            app:layout_constraintTop_toTopOf="@id/lbl_delivery_address"
+            tools:text="8 La Follette Trail" />
+
+        <TextView
+            android:id="@+id/lbl_delivery_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delivery status : "
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lbl_delivery_address" />
+
+        <TextView
+            android:id="@+id/txt_delivery_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/lbl_delivery_status"
+            app:layout_constraintLeft_toRightOf="@id/lbl_delivery_status"
+            app:layout_constraintTop_toBottomOf="@id/lbl_delivery_status"
+            tools:text="Ready for pickup" />
+
+        <Button
+            android:id="@+id/act_change_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lbl_delivery_status"
+            tools:text="Product Picked up" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
