@@ -1,31 +1,15 @@
 package com.enigma.myapplication
 
-import android.util.Log
-import okhttp3.FormBody
 import okhttp3.Interceptor
 import okhttp3.MediaType
 import okhttp3.Protocol
-import okhttp3.RequestBody
 import okhttp3.Response
 import okhttp3.ResponseBody
-import okio.Buffer
-import org.json.JSONException
-import org.json.JSONObject
-import java.io.IOException
 
 class MockInterceptor : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {
         val uri = chain.request().url().uri().toString()
-        if (chain.request().method() == "POST") {
-            val subtype = chain.request().body()!!.contentType()?.subtype()
-            if (subtype?.contains("json") == true) {
-                processApplicationJsonRequestBody(chain.request().body()!!)
-            } else if (subtype?.contains("form") == true) {
-                processFormDataRequestBody(chain.request().body()!!)
-            }
-            Log.d(TAG, bodyToString(chain.request().body()!!))
-        }
         val responseString = when {
             uri.endsWith("tasks") && chain.request()
                 .method() == "GET" -> getListOfReposBeingStarredJson
@@ -50,38 +34,6 @@ class MockInterceptor : Interceptor {
     }
 
     companion object {
-        private fun processFormDataRequestBody(
-            requestBody: RequestBody
-        ): RequestBody? {
-            val formBody: RequestBody = FormBody.Builder()
-                .build()
-            var postBodyString = bodyToString(requestBody)
-            postBodyString += (if (postBodyString.isNotEmpty()) "&" else "") + bodyToString(formBody)
-            return RequestBody.create(requestBody.contentType(), postBodyString)
-        }
-
-        private fun bodyToString(request: RequestBody): String {
-            return try {
-                val buffer = Buffer()
-                request.writeTo(buffer)
-                buffer.readUtf8()
-            } catch (e: IOException) {
-                "did not work"
-            }
-        }
-
-        private fun processApplicationJsonRequestBody(
-            requestBody: RequestBody
-        ): RequestBody? {
-            val customReq = bodyToString(requestBody)
-            try {
-                val obj = JSONObject(customReq)
-                return RequestBody.create(requestBody.contentType(), obj.toString())
-            } catch (e: JSONException) {
-                e.printStackTrace()
-            }
-            return null
-        }
 
         private val TAG = MockInterceptor::class.simpleName
 
