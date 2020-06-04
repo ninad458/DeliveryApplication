@@ -1,9 +1,12 @@
-package com.enigma.myapplication
+package com.enigma.myapplication.data.remote.sync
 
 import android.content.Context
 import android.util.Log
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
+import com.enigma.myapplication.data.local.createRoom
+import com.enigma.myapplication.data.remote.api.Api
+import com.enigma.myapplication.data.remote.api.TaskStatusRequestBody
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope

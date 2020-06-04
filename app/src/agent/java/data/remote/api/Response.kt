@@ -1,4 +1,4 @@
-package com.enigma.myapplication
+package com.enigma.myapplication.data.remote.api
 
 import com.squareup.moshi.Json
 

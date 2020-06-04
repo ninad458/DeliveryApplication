@@ -1,9 +1,11 @@
-package com.enigma.myapplication
+package com.enigma.myapplication.data.local
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
+import com.enigma.myapplication.data.utils.Converter
+import com.enigma.myapplication.data.remote.api.Status
 
 @Entity(tableName = "tasks")
 data class TaskEntity(

@@ -1,10 +1,15 @@
-package com.enigma.myapplication
+package com.enigma.myapplication.tasks
 
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
-import com.enigma.myapplication.TaskActivity.Companion.launchTaskActivity
+import com.enigma.myapplication.BaseActivity
+import com.enigma.myapplication.R
+import com.enigma.myapplication.task.TaskActivity.Companion.launchTaskActivity
+import com.enigma.myapplication.data.remote.api.Api
+import com.enigma.myapplication.data.local.TaskEntity
+import com.enigma.myapplication.data.local.getAppDB
 import kotlinx.android.synthetic.agent.activity_tasks.*
 
 class TasksActivity : BaseActivity() {
@@ -21,7 +26,8 @@ class TasksActivity : BaseActivity() {
 
     private val tasks by lazy { database.getAll() }
 
-    private val adapter = TasksAdapter(navigationListener)
+    private val adapter =
+        TasksAdapter(navigationListener)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

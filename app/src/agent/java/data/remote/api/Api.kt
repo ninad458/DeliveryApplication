@@ -1,4 +1,4 @@
-package com.enigma.myapplication
+package com.enigma.myapplication.data.remote.api
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

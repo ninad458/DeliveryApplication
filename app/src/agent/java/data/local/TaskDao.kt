@@ -1,4 +1,4 @@
-package com.enigma.myapplication
+package com.enigma.myapplication.data.local
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

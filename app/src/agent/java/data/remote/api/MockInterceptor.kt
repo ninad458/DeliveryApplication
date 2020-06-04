@@ -1,4 +1,4 @@
-package com.enigma.myapplication
+package com.enigma.myapplication.data.remote.api
 
 import okhttp3.Interceptor
 import okhttp3.MediaType
@@ -6,7 +6,7 @@ import okhttp3.Protocol
 import okhttp3.Response
 import okhttp3.ResponseBody
 
-class MockInterceptor : Interceptor {
+internal class MockInterceptor : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {
         val uri = chain.request().url().uri().toString()

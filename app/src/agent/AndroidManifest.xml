@@ -3,8 +3,8 @@
     package="com.enigma.myapplication">
 
     <application android:name=".App">
-        <activity android:name=".TasksActivity" />
-        <activity android:name=".TaskActivity" />
+        <activity android:name=".tasks.TasksActivity" />
+        <activity android:name=".task.TaskActivity" />
     </application>
 
 </manifest>

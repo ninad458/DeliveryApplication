@@ -1,4 +1,4 @@
-package com.enigma.myapplication
+package com.enigma.myapplication.task
 
 import android.app.Activity
 import android.content.Intent
@@ -6,10 +6,15 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
-import com.enigma.myapplication.Status.CANCELLED
-import com.enigma.myapplication.Status.DELIVERED
-import com.enigma.myapplication.Status.IN_TRANSIT
-import com.enigma.myapplication.Status.QUEUED
+import com.enigma.myapplication.BaseActivity
+import com.enigma.myapplication.R
+import com.enigma.myapplication.data.remote.api.Status.CANCELLED
+import com.enigma.myapplication.data.remote.api.Status.DELIVERED
+import com.enigma.myapplication.data.remote.api.Status.IN_TRANSIT
+import com.enigma.myapplication.data.remote.api.Status.QUEUED
+import com.enigma.myapplication.data.local.TaskEntity
+import com.enigma.myapplication.data.local.getAppDB
+import com.enigma.myapplication.tasks.TasksActivity
 import kotlinx.android.synthetic.agent.activity_task.*
 
 class TaskActivity : BaseActivity() {
