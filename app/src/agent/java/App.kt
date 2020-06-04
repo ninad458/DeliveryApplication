@@ -1,16 +1,26 @@
 package com.enigma.myapplication
 
 import android.app.Application
-import androidx.room.Room
+import androidx.work.Constraints
+import androidx.work.NetworkType
+import androidx.work.OneTimeWorkRequest
+import androidx.work.WorkManager
 
 class App : Application() {
 
-    private val db by lazy {
-        Room.databaseBuilder(
-            this,
-            AppDatabase::class.java, "database-name"
-        ).build()
-    }
+    val appDB by lazy { createRoom }
 
-    fun getAppDB() = db
+    override fun onCreate() {
+        super.onCreate()
+        appDB.tasksDao().getAll().observeForever {
+            println("zzzzzzzzz")
+            val constraints: Constraints = Constraints.Builder()
+                .setRequiredNetworkType(NetworkType.CONNECTED)
+                .build()
+            val onetimeJob: OneTimeWorkRequest = OneTimeWorkRequest.Builder(SyncWorker::class.java)
+                .setConstraints(constraints).build() // or PeriodicWorkRequest
+
+            WorkManager.getInstance(this).enqueue(onetimeJob)
+        }
+    }
 }

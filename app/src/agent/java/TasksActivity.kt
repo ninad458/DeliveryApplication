@@ -9,6 +9,10 @@ import kotlinx.android.synthetic.agent.activity_tasks.*
 
 class TasksActivity : BaseActivity() {
 
+    companion object {
+        private const val TAG = "TasksActivity"
+    }
+
     private val navigationListener = { id: String -> launchTaskActivity(id) }
 
     private val api by lazy { Api.getApi() }
@@ -30,7 +34,7 @@ class TasksActivity : BaseActivity() {
         list.adapter = adapter
         list.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
         tasks.observe(this, Observer {
-            Log.d("zzzzzz", it.toString())
+            Log.d(TAG, it.toString())
             adapter.setTasks(it)
         })
     }

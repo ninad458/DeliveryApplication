@@ -43,7 +43,7 @@ class TaskActivity : BaseActivity() {
                     act_change_state.isEnabled = false
                 else act_change_state.setOnClickListener { _ -> showPopUp(it) }
             } catch (e: Exception) {
-                Log.e("zzzzzzz", e.message)
+                Log.e(TAG, e.message)
             }
         })
     }
@@ -73,6 +73,7 @@ class TaskActivity : BaseActivity() {
     }
 
     companion object {
+        private val TAG = TasksActivity::class.simpleName
         private const val ID = "task id"
         fun Activity.launchTaskActivity(id: String) {
             startActivity(Intent(this, TaskActivity::class.java).apply {

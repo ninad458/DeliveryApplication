@@ -3,7 +3,9 @@ package com.enigma.myapplication
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 
 interface Api {
 
@@ -23,5 +25,8 @@ interface Api {
     }
 
     @GET("tasks")
-    suspend fun getTasks(): Response
+    suspend fun getTasks(): GetTasksResponse
+
+    @POST("tasks")
+    suspend fun updateTaskStatus(@Body taskStatus: TaskStatusRequestBody): UpdateTasksResponse
 }

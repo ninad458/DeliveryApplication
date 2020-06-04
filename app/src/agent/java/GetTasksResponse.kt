@@ -2,7 +2,7 @@ package com.enigma.myapplication
 
 import com.squareup.moshi.Json
 
-data class Response(val orders: List<Task> = listOf())
+data class GetTasksResponse(val orders: List<Task> = listOf())
 
 data class Task(
     val id: String,
@@ -26,3 +26,5 @@ enum class Status {
     @Json(name = "cancelled")
     CANCELLED
 }
+
+data class UpdateTasksResponse(val message: String)

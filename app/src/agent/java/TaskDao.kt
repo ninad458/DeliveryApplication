@@ -20,4 +20,7 @@ interface TaskDao {
 
     @Update
     suspend fun update(vararg tasks: TaskEntity)
+
+    @Query("SELECT * FROM tasks WHERE synced = :synced")
+    suspend fun getAllTasksWithSync(synced: Boolean): List<TaskEntity>
 }
